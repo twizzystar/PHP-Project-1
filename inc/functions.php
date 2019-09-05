@@ -55,16 +55,23 @@ function printQuote($twizzyQuotes) {
     //
  $writeQuotes = '';
  $writeQuotes =   '<p class="quote">' . $twizzyQuotes ['quote'] . '</p>';
- $writeQuotes .=  '<p class="source">' . $twizzyQuotes ['source'].
-  '<span class= "citation">' . $twizzyQuotes ['citation'] . '</span>' .
-  '<span class="year">' . $twizzyQuotes ['year'] . '</span> </p>';
+ $writeQuotes .=  '<p class="source">' . $twizzyQuotes ['source']. '</p>';
+
   //
   //
   //
-  if ($twizzyQuotes ['citation'] && ['year'] == Null) {
-    '<p class="quote">' . $twizzyQuotes ['quote'] . '</p>';
-    $writeQuotes = '<p class="source">' . $twizzyQuotes ['source'] . '</p>';
-  }
+  if ($twizzyQuotes ['citation'] !== Null) {
+     $writeQuotes = '<p class="quote">' . $twizzyQuotes ['quote'] . '</p>';
+     $writeQuotes .= '<p class="source">' . $twizzyQuotes ['source'] . '</p>'
+     .'<span class="citation">' . $twizzyQuotes ['citation'] . '</span> </p>';
+   } else ($twizzyQuotes ['year'] !== Null) {
+      $writeQuotes = '<p class="quote">' . $twizzyQuotes ['quote'] . '</p>';
+      $writeQuotes .= '<p class="source">' . $twizzyQuotes ['source'] . '</p>'
+      .'<span class= "year">' . $twizzyQuotes ['year'] . '</span> </p>';
+
+    }
+
+     }
  echo $writeQuotes;
 }
 // Each inner array element should be an associative array
